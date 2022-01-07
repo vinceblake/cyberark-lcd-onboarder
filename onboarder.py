@@ -3,7 +3,7 @@ import json
 import keyring
 
 # Ignore SSL cert warnings from requests module?
-require_ssl_verify = False
+require_ssl_verify = True
 if require_ssl_verify is False:
     from requests.packages.urllib3.exceptions import InsecureRequestWarning
     requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -121,11 +121,11 @@ if __name__ == '__main__':
     pvwa_headers = pvwa_auth(pvwa_auth_type,pvwa_username,pvwa_password)
 
     # EPM: Get Sets (used to retrieve value for epm_set_id variable above)
-    #sets = epm_get_sets(epm_headers)
-    #print(sets)
+    sets = epm_get_sets(epm_headers)
+    print(sets)
 
     # EPM: Get computers in Set
-    computers = epm_get_computers(epm_headers,epm_set_id)
+    #computers = epm_get_computers(epm_headers,epm_set_id)
     
     # PVWA: Add Accounts
-    pvwa_add_accounts(pvwa_headers,computers)
+    #pvwa_add_accounts(pvwa_headers,computers)
